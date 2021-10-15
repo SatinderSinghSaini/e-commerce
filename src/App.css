@@ -11,28 +11,24 @@
 .nav-item{
   padding:15px;
 }
-
 .nav-content{
   text-decoration: auto;
   color: white;
 }
 .nav-content:hover{
   color: burlywood;
-  }
-.active{
-  color: burlywood;
-  }
+}
 
-.add-product-container{
+.add-product-container, .edit-product-container{
   display: flex;
   flex-direction: column;  
 }
-.add-product-form{
+.add-product-form, .edit-product-form{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.add-product-form-field{
+.add-product-form-field, .edit-product-form-field{
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -40,12 +36,40 @@
   justify-content: space-between;
   margin: 15px;
 }
-.add-product-label{
+.add-product-label, .edit-product-label{
   margin-right: auto;
 }
 .card{
   box-shadow: 0px -2px 8px 2px rgb(0 0 255 / 20%);
 }
-
+.admin-products-grid, .products-grid{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+button{
+  color: white;
+  background: #00695c;
+}
+button:hover{
+  color:burlywood;
+}
+.action-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
+}
 
 

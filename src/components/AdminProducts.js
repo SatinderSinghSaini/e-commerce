@@ -1,19 +1,21 @@
-const AdminProducts = ({products,deleteProduct}) =>{
-    console.log(products);
+const AdminProducts = (props) =>{
+    const {products,deleteProduct,handleEdit} = props;
+    function onEdit(product) {
+        handleEdit(product);
+        props.history.push('add-product');
+    }
     const jsxProducts = products.map(product=>{
         return (
             <article className="card" key={product.id}>
                 <header>{product.title}</header>
                 <div className="image"><img height="150px" src={product.imageUrl} alt="Product Image"></img></div>
                 <div className="details">
-                    Description: {product.description}
-                    Price: {product.price}
+                    <span>Description: <b>{product.description}</b></span>
+                    <span>Price: <b>{product.price}</b></span>
                 </div>
-                <div className="action_buttons">
-                    <div>
-                        <button>Edit</button>
+                <div className="action-buttons">
+                        <button onClick={()=> onEdit(product)}>Edit</button>
                         <button onClick={()=>deleteProduct(product.id)}>Delete</button>
-                    </div>
                 </div>
             </article>
         )

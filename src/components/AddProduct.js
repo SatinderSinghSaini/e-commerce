@@ -5,10 +5,12 @@ class AddProduct extends Component{
         imageUrl: '',
         price: '',
         description: ''
-    }
+    }  
+      
     handleSubmit = (e) =>{
         e.preventDefault();
         this.props.addProduct(this.state);
+        this.props.history.push('/admin-products');
     }
     handleChange = (e)=>{
         this.setState({
