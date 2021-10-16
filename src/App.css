@@ -42,7 +42,7 @@
 .card{
   box-shadow: 0px -2px 8px 2px rgb(0 0 255 / 20%);
 }
-.admin-products-grid, .products-grid{
+.admin-products-grid, .products-grid, .cart-grid{
   display: flex;
   flex-flow: row wrap;
   justify-content: start;

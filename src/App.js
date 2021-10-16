@@ -6,6 +6,7 @@ import Products from './components/Products';
 import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
 import AdminProducts from './components/AdminProducts';
+import Cart from './components/Cart/Cart';
 
 class App extends Component {
   state={
@@ -13,7 +14,6 @@ class App extends Component {
     selectedProduct: null
   }
   handleEdit = (product) =>{
-    console.log('handle edit',product);
     this.setSelectedProduct(product);
   }
   setSelectedProduct = (product) =>{
@@ -57,6 +57,20 @@ class App extends Component {
       products: products
     });
   }
+
+  handleCart = (product, value) =>{
+    const products = this.state.products;
+    for (var i in products) {
+      if (products[i].id == product.id) {
+        products[i].isAddedInCart = value;
+        break;
+      }
+    }
+    this.setState({
+      ...this.state,
+      products: products
+    });
+  }
   render() {
     return (
       <BrowserRouter>
@@ -71,10 +85,10 @@ class App extends Component {
               /> } >              
               </Route>
               <Route path="/admin-products" render={ (props)=><AdminProducts {...props} handleEdit={this.handleEdit} deleteProduct = {this.deleteProduct} products={this.state.products}/>}></Route>
-              <Route path="/" render= {(props) => <Products {...props} products={this.state.products} />}></Route>              
+              <Route path="/cart" render={(props) => <Cart {...props} products={this.state.products} handleCart={this.handleCart} />}></Route> 
+              <Route path="/" render= {(props) => <Products {...props} products={this.state.products} handleCart = { this.handleCart } />}></Route>              
             </Switch>           
-      </div>   
-               
+      </div>               
       </BrowserRouter>
       
     

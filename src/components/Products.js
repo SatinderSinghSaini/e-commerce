@@ -1,5 +1,5 @@
 const Products = (props) =>{
-    const {products} = props;
+    const {products,handleCart} = props;
 
     const jsxProducts = products.map(product=>{
         return (
@@ -9,6 +9,9 @@ const Products = (props) =>{
                 <div className="details">
                     <span>Description: <b>{product.description}</b></span>
                     <span>Price: <b>{product.price}</b></span>
+                </div>
+                <div className="action-buttons">
+                    <button onClick={()=>handleCart(product, true)}>Add to Cart</button>
                 </div>
             </article>
         );

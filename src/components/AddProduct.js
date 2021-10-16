@@ -4,7 +4,8 @@ class AddProduct extends Component{
         title: '',
         imageUrl: '',
         price: '',
-        description: ''
+        description: '',
+        isAddedInCart: false
     }  
       
     handleSubmit = (e) =>{
